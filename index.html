@@ -3,45 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Clock</title>
+    <title>TimeAndDate World Clock</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #282c34;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
             color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
             text-align: center;
-            background-color: #3a3f47;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            max-width: 400px;
-            width: 100%;
+            padding: 50px;
         }
-        select {
+        select, button {
             padding: 10px;
-            border-radius: 5px;
+            margin: 10px;
             border: none;
-            background-color: #4e545b;
-            color: white;
-            margin: 10px 0;
+            border-radius: 5px;
             font-size: 16px;
-            width: 100%;
         }
         button {
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
             background-color: #007bff;
             color: white;
-            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
@@ -50,433 +30,252 @@
         }
         .watch {
             font-size: 48px;
-            font-weight: bold;
             margin: 20px 0;
-            background-color: #4e545b;
-            padding: 20px;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
         }
         .info {
             font-size: 24px;
             margin-top: 10px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>World Clock</h1>
+    <h1>TimeAndDate World Clock</h1>
     <select id="countrySelect">
-        <option value="" disabled selected>Select a country</option>
-        <option value="Afghanistan">Afghanistan</option>
-        <option value="Albania">Albania</option>
-        <option value="Algeria">Algeria</option>
-        <option value="Andorra">Andorra</option>
-        <option value="Angola">Angola</option>
-        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-        <option value="Argentina">Argentina</option>
-        <option value="Armenia">Armenia</option>
-        <option value="Australia">Australia</option>
-        <option value="Austria">Austria</option>
-        <option value="Azerbaijan">Azerbaijan</option>
-        <option value="Bahamas">Bahamas</option>
-        <option value="Bahrain">Bahrain</option>
-        <option value="Bangladesh">Bangladesh</option>
-        <option value="Barbados">Barbados</option>
-        <option value="Belarus">Belarus</option>
-        <option value="Belgium">Belgium</option>
-        <option value="Belize">Belize</option>
-        <option value="Benin">Benin</option>
-        <option value="Bhutan">Bhutan</option>
-        <option value="Bolivia">Bolivia</option>
-        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-        <option value="Botswana">Botswana</option>
-        <option value="Brazil">Brazil</option>
-        <option value="Brunei">Brunei</option>
-        <option value="Bulgaria">Bulgaria</option>
-        <option value="Burkina Faso">Burkina Faso</option>
-        <option value="Burundi">Burundi</option>
-        <option value="Cabo Verde">Cabo Verde</option>
-        <option value="Cambodia">Cambodia</option>
-        <option value="Cameroon">Cameroon</option>
-        <option value="Canada">Canada</option>
-        <option value="Central African Republic">Central African Republic</option>
-        <option value="Chad">Chad</option>
-        <option value="Chile">Chile</option>
-        <option value="China">China</option>
-        <option value="Colombia">Colombia</option>
-        <option value="Comoros">Comoros</option>
-        <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option>
-        <option value="Congo, Republic of the">Congo, Republic of the</option>
-        <option value="Costa Rica">Costa Rica</option>
-        <option value="Croatia">Croatia</option>
-        <option value="Cuba">Cuba</option>
-        <option value="Cyprus">Cyprus</option>
-        <option value="Czech Republic">Czech Republic</option>
-        <option value="Denmark">Denmark</option>
-        <option value="Djibouti">Djibouti</option>
-        <option value="Dominica">Dominica</option>
-        <option value="Dominican Republic">Dominican Republic</option>
-        <option value="Ecuador">Ecuador</option>
-        <option value="Egypt">Egypt</option>
-        <option value="El Salvador">El Salvador</option>
-        <option value="Equatorial Guinea">Equatorial Guinea</option>
-        <option value="Eritrea">Eritrea</option>
-        <option value="Estonia">Estonia</option>
-        <option value="Eswatini">Eswatini</option>
-        <option value="Ethiopia">Ethiopia</option>
-        <option value="Fiji">Fiji</option>
-        <option value="Finland">Finland</option>
-        <option value="France">France</option>
-        <option value="Gabon">Gabon</option>
-        <option value="Gambia">Gambia</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Germany">Germany</option>
-        <option value="Ghana">Ghana</option>
-        <option value="Greece">Greece</option>
-        <option value="Grenada">Grenada</option>
-        <option value="Guatemala">Guatemala</option>
-        <option value="Guinea">Guinea</option>
-        <option value="Guinea-Bissau">Guinea-Bissau</option>
-        <option value="Guyana">Guyana</option>
-        <option value="Haiti">Haiti</option>
-        <option value="Honduras">Honduras</option>
-        <option value="Hungary">Hungary</option>
-        <option value="Iceland">Iceland</option>
-        <option value="India">India</option>
-        <option value="Indonesia">Indonesia</option>
-        <option value="Iran">Iran</option>
-        <option value="Iraq">Iraq</option>
-        <option value="Ireland">Ireland</option>
-        <option value="Israel">Israel</option>
-        <option value="Italy">Italy</option>
-        <option value="Jamaica">Jamaica</option>
-        <option value="Japan">Japan</option>
-        <option value="Jordan">Jordan</option>
-        <option value="Kazakhstan">Kazakhstan</option>
-        <option value="Kenya">Kenya</option>
-        <option value="Kiribati">Kiribati</option>
-        <option value="Korea, North">Korea, North</option>
-        <option value="Korea, South">Korea, South</option>
-        <option value="Kuwait">Kuwait</option>
-        <option value="Kyrgyzstan">Kyrgyzstan</option>
-        <option value="Laos">Laos</option>
-        <option value="Latvia">Latvia</option>
-        <option value="Lebanon">Lebanon</option>
-        <option value="Lesotho">Lesotho</option>
-        <option value="Liberia">Liberia</option>
-        <option value="Libya">Libya</option>
-        <option value="Liechtenstein">Liechtenstein</option>
-        <option value="Lithuania">Lithuania</option>
-        <option value="Luxembourg">Luxembourg</option>
-        <option value="Madagascar">Madagascar</option>
-        <option value="Malawi">Malawi</option>
-        <option value="Malaysia">Malaysia</option>
-        <option value="Maldives">Maldives</option>
-        <option value="Mali">Mali</option>
-        <option value="Malta">Malta</option>
-        <option value="Marshall Islands">Marshall Islands</option>
-        <option value="Mauritania">Mauritania</option>
-        <option value="Mauritius">Mauritius</option>
-        <option value="Mexico">Mexico</option>
-        <option value="Micronesia">Micronesia</option>
-        <option value="Moldova">Moldova</option>
-        <option value="Monaco">Monaco</option>
-        <option value="Mongolia">Mongolia</option>
-        <option value="Montenegro">Montenegro</option>
-        <option value="Morocco">Morocco</option>
-        <option value="Mozambique">Mozambique</option>
-        <option value="Myanmar">Myanmar</option>
-        <option value="Namibia">Namibia</option>
-        <option value="Nauru">Nauru</option>
-        <option value="Nepal">Nepal</option>
-        <option value="Netherlands">Netherlands</option>
-        <option value="New Zealand">New Zealand</option>
-        <option value="Nicaragua">Nicaragua</option>
-        <option value="Niger">Niger</option>
-        <option value="Nigeria">Nigeria</option>
-        <option value="North Macedonia">North Macedonia</option>
-        <option value="Norway">Norway</option>
-        <option value="Oman">Oman</option>
-        <option value="Pakistan">Pakistan</option>
-        <option value="Palau">Palau</option>
-        <option value="Palestine">Palestine</option>
-        <option value="Panama">Panama</option>
-        <option value="Papua New Guinea">Papua New Guinea</option>
-        <option value="Paraguay">Paraguay</option>
-        <option value="Peru">Peru</option>
-        <option value="Philippines">Philippines</option>
-        <option value="Poland">Poland</option>
-        <option value="Portugal">Portugal</option>
-        <option value="Qatar">Qatar</option>
-        <option value="Romania">Romania</option>
-        <option value="Russia">Russia</option>
-        <option value="Rwanda">Rwanda</option>
-        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-        <option value="Saint Lucia">Saint Lucia</option>
-        <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
-        <option value="Samoa">Samoa</option>
-        <option value="San Marino">San Marino</option>
-        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-        <option value="Saudi Arabia">Saudi Arabia</option>
-        <option value="Senegal">Senegal</option>
-        <option value="Serbia">Serbia</option>
-        <option value="Seychelles">Seychelles</option>
-        <option value="Sierra Leone">Sierra Leone</option>
-        <option value="Singapore">Singapore</option>
-        <option value="Slovakia">Slovakia</option>
-        <option value="Slovenia">Slovenia</option>
-        <option value="Solomon Islands">Solomon Islands</option>
-        <option value="Somalia">Somalia</option>
-        <option value="South Africa">South Africa</option>
-        <option value="Spain">Spain</option>
-        <option value="Sri Lanka">Sri Lanka</option>
-        <option value="Sudan">Sudan</option>
-        <option value="Suriname">Suriname</option>
-        <option value="Sweden">Sweden</option>
-        <option value="Switzerland">Switzerland</option>
-        <option value="Syria">Syria</option>
-        <option value="Taiwan">Taiwan</option>
-        <option value="Tajikistan">Tajikistan</option>
-        <option value="Tanzania">Tanzania</option>
-        <option value="Thailand">Thailand</option>
-        <option value="Togo">Togo</option>
-        <option value="Tonga">Tonga</option>
-        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-        <option value="Tunisia">Tunisia</option>
-        <option value="Turkey">Turkey</option>
-        <option value="Turkmenistan">Turkmenistan</option>
-        <option value="Tuvalu">Tuvalu</option>
-        <option value="Uganda">Uganda</option>
-        <option value="Ukraine">Ukraine</option>
-        <option value="United Arab Emirates">United Arab Emirates</option>
-        <option value="United Kingdom">United Kingdom</option>
+        <option value="">Select a country</option>
         <option value="United States">United States</option>
-        <option value="Uruguay">Uruguay</option>
-        <option value="Uzbekistan">Uzbekistan</option>
-        <option value="Vanuatu">Vanuatu</option>
-        <option value="Vatican City">Vatican City</option>
-        <option value="Venezuela">Venezuela</option>
+        <option value="India">India</option>
+        <option value="Japan">Japan</option>
+        <option value="Germany">Germany</option>
+        <option value="Australia">Australia</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Canada">Canada</option>
+        <option value="China">China</option>
+        <option value="France">France</option>
+        <option value="Russia">Russia</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Mexico">Mexico</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Italy">Italy</option>
+        <option value="Spain">Spain</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Turkey">Turkey</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="Sweden">Sweden</option>
+        <option value="Saudi Arabia">Saudi Arabia</option>
+        <option value="South Korea">South Korea</option>
+        <option value="Indonesia">Indonesia</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Philippines">Philippines</option>
         <option value="Vietnam">Vietnam</option>
+        <option value="Thailand">Thailand</option>
+        <option value="Malaysia">Malaysia</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="Egypt">Egypt</option>
+        <option value="Colombia">Colombia</option>
+        <option value="Peru">Peru</option>
+        <option value="Chile">Chile</option>
+        <option value="Finland">Finland</option>
+        <option value="Norway">Norway</option>
+        <option value="Denmark">Denmark</option>
+        <option value="Ireland">Ireland</option>
+        <option value="Czech Republic">Czech Republic</option>
+        <option value="Greece">Greece</option>
+        <option value="Portugal">Portugal</option>
+        <option value="Ukraine">Ukraine</option>
+        <option value="Israel">Israel</option>
+        <option value="Bangladesh">Bangladesh</option>
+        <option value="Iraq">Iraq</option>
+        <option value="Afghanistan">Afghanistan</option>
+        <option value="Kuwait">Kuwait</option>
+        <option value="Jordan">Jordan</option>
+        <option value="Oman">Oman</option>
+        <option value="Qatar">Qatar</option>
+        <option value="Kazakhstan">Kazakhstan</option>
+        <option value="Uzbekistan">Uzbekistan</option>
+        <option value="Sri Lanka">Sri Lanka</option>
+        <option value="Honduras">Honduras</option>
+        <option value="Costa Rica">Costa Rica</option>
+        <option value="Panama">Panama</option>
+        <option value="Ecuador">Ecuador</option>
+        <option value="Venezuela">Venezuela</option>
+        <option value="Bolivia">Bolivia</option>
+        <option value="Paraguay">Paraguay</option>
+        <option value="Syria">Syria</option>
+        <option value="Sudan">Sudan</option>
         <option value="Yemen">Yemen</option>
-        <option value="Zambia">Zambia</option>
+        <option value="Libya">Libya</option>
+        <option value="Morocco">Morocco</option>
+        <option value="Tunisia">Tunisia</option>
+        <option value="Algeria">Algeria</option>
+        <option value="Senegal">Senegal</option>
+        <option value="Ghana">Ghana</option>
+        <option value="Ivory Coast">Ivory Coast</option>
+        <option value="Tanzania">Tanzania</option>
+        <option value="Uganda">Uganda</option>
         <option value="Zimbabwe">Zimbabwe</option>
+        <option value="Namibia">Namibia</option>
+        <option value="Botswana">Botswana</option>
+        <option value="Mali">Mali</option>
+        <option value="Malawi">Malawi</option>
+        <option value="Cameroon">Cameroon</option>
+        <option value="DR Congo">Democratic Republic of the Congo</option>
+        <option value="Congo">Republic of the Congo</option>
+        <option value="Angola">Angola</option>
+        <option value="Somalia">Somalia</option>
+        <option value="Rwanda">Rwanda</option>
+        <option value="Burundi">Burundi</option>
+        <option value="Niger">Niger</option>
+        <option value="Djibouti">Djibouti</option>
+        <option value="Malta">Malta</option>
+        <option value="Liechtenstein">Liechtenstein</option>
+        <option value="Luxembourg">Luxembourg</option>
+        <option value="Monaco">Monaco</option>
+        <option value="Andorra">Andorra</option>
+        <option value="San Marino">San Marino</option>
+        <option value="Vatican City">Vatican City</option>
+        <option value="Brunei">Brunei</option>
+        <option value="Bhutan">Bhutan</option>
+        <option value="Maldives">Maldives</option>
+        <option value="Timor-Leste">Timor-Leste</option>
+        <!-- Add more countries as needed -->
     </select>
-    <button onclick="displayTime()">Show Time</button>
+    <button onclick="startClock()">Show Time</button>
     <div class="watch" id="watch">00:00:00</div>
     <div class="info" id="info"></div>
 </div>
 
 <script>
     const timezones = {
-        "Afghanistan": "Asia/Kabul",
-        "Albania": "Europe/Tirane",
-        "Algeria": "Africa/Algiers",
-        "Andorra": "Europe/Andorra",
-        "Angola": "Africa/Luanda",
-        "Antigua and Barbuda": "America/Antigua",
-        "Argentina": "America/Argentina/Buenos_Aires",
-        "Armenia": "Asia/Yerevan",
-        "Australia": "Australia/Sydney",
-        "Austria": "Europe/Vienna",
-        "Azerbaijan": "Asia/Baku",
-        "Bahamas": "America/Nassau",
-        "Bahrain": "Asia/Bahrain",
-        "Bangladesh": "Asia/Dhaka",
-        "Barbados": "America/Barbados",
-        "Belarus": "Europe/Minsk",
-        "Belgium": "Europe/Brussels",
-        "Belize": "America/Belize",
-        "Benin": "Africa/Porto-Novo",
-        "Bhutan": "Asia/Thimphu",
-        "Bolivia": "America/La_Paz",
-        "Bosnia and Herzegovina": "Europe/Sarajevo",
-        "Botswana": "Africa/Gaborone",
-        "Brazil": "America/Sao_Paulo",
-        "Brunei": "Asia/Brunei",
-        "Bulgaria": "Europe/Sofia",
-        "Burkina Faso": "Africa/Ouagadougou",
-        "Burundi": "Africa/Bujumbura",
-        "Cabo Verde": "Atlantic/Cape_Verde",
-        "Cambodia": "Asia/Phnom_Penh",
-        "Cameroon": "Africa/Douala",
-        "Canada": "America/Toronto",
-        "Central African Republic": "Africa/Bangui",
-        "Chad": "Africa/Ndjamena",
-        "Chile": "America/Santiago",
-        "China": "Asia/Shanghai",
-        "Colombia": "America/Bogota",
-        "Comoros": "Indian/Comoro",
-        "Congo, Democratic Republic of the": "Africa/Kinshasa",
-        "Congo, Republic of the": "Africa/Brazzaville",
-        "Costa Rica": "America/Costa_Rica",
-        "Croatia": "Europe/Zagreb",
-        "Cuba": "America/Havana",
-        "Cyprus": "Asia/Nicosia",
-        "Czech Republic": "Europe/Prague",
-        "Denmark": "Europe/Copenhagen",
-        "Djibouti": "Africa/Djibouti",
-        "Dominica": "America/Dominica",
-        "Dominican Republic": "America/Santo_Domingo",
-        "Ecuador": "America/Guayaquil",
-        "Egypt": "Africa/Cairo",
-        "El Salvador": "America/El_Salvador",
-        "Equatorial Guinea": "Africa/Malabo",
-        "Eritrea": "Africa/Asmara",
-        "Estonia": "Europe/Tallinn",
-        "Eswatini": "Africa/Mbabane",
-        "Ethiopia": "Africa/Addis_Ababa",
-        "Fiji": "Pacific/Fiji",
-        "Finland": "Europe/Helsinki",
-        "France": "Europe/Paris",
-        "Gabon": "Africa/Libreville",
-        "Gambia": "Africa/Banjul",
-        "Georgia": "Asia/Tbilisi",
-        "Germany": "Europe/Berlin",
-        "Ghana": "Africa/Accra",
-        "Greece": "Europe/Athens",
-        "Grenada": "America/Grenada",
-        "Guatemala": "America/Guatemala",
-        "Guinea": "Africa/Conakry",
-        "Guinea-Bissau": "Africa/Bissau",
-        "Guyana": "America/Guyana",
-        "Haiti": "America/Port-au-Prince",
-        "Honduras": "America/Tegucigalpa",
-        "Hungary": "Europe/Budapest",
-        "Iceland": "Atlantic/Reykjavik",
-        "India": "Asia/Kolkata",
-        "Indonesia": "Asia/Jakarta",
-        "Iran": "Asia/Tehran",
-        "Iraq": "Asia/Baghdad",
-        "Ireland": "Europe/Dublin",
-        "Israel": "Asia/Jerusalem",
-        "Italy": "Europe/Rome",
-        "Jamaica": "America/Jamaica",
-        "Japan": "Asia/Tokyo",
-        "Jordan": "Asia/Amman",
-        "Kazakhstan": "Asia/Almaty",
-        "Kenya": "Africa/Nairobi",
-        "Kiribati": "Pacific/Tarawa",
-        "Korea, North": "Asia/Pyongyang",
-        "Korea, South": "Asia/Seoul",
-        "Kuwait": "Asia/Kuwait",
-        "Kyrgyzstan": "Asia/Bishkek",
-        "Laos": "Asia/Vientiane",
-        "Latvia": "Europe/Riga",
-        "Lebanon": "Asia/Beirut",
-        "Lesotho": "Africa/Maseru",
-        "Liberia": "Africa/Monrovia",
-        "Libya": "Africa/Tripoli",
-        "Liechtenstein": "Europe/Vaduz",
-        "Lithuania": "Europe/Vilnius",
-        "Luxembourg": "Europe/Luxembourg",
-        "Madagascar": "Indian/Antananarivo",
-        "Malawi": "Africa/Blantyre",
-        "Malaysia": "Asia/Kuala_Lumpur",
-        "Maldives": "Asia/Male",
-        "Mali": "Africa/Bamako",
-        "Malta": "Europe/Valletta",
-        "Marshall Islands": "Pacific/Majuro",
-        "Mauritania": "Africa/Nouakchott",
-        "Mauritius": "Indian/Mauritius",
-        "Mexico": "America/Mexico_City",
-        "Micronesia": "Pacific/Chuuk",
-        "Moldova": "Europe/Chisinau",
-        "Monaco": "Europe/Monaco",
-        "Mongolia": "Asia/Ulaanbaatar",
-        "Montenegro": "Europe/Podgorica",
-        "Morocco": "Africa/Casablanca",
-        "Mozambique": "Africa/Maputo",
-        "Myanmar": "Asia/Yangon",
-        "Namibia": "Africa/Windhoek",
-        "Nauru": "Pacific/Nauru",
-        "Nepal": "Asia/Kathmandu",
-        "Netherlands": "Europe/Amsterdam",
-        "New Zealand": "Pacific/Auckland",
-        "Nicaragua": "America/Managua",
-        "Niger": "Africa/Niamey",
-        "Nigeria": "Africa/Lagos",
-        "North Macedonia": "Europe/Skopje",
-        "Norway": "Europe/Oslo",
-        "Oman": "Asia/Muscat",
-        "Pakistan": "Asia/Karachi",
-        "Palau": "Pacific/Palau",
-        "Palestine": "Asia/Gaza",
-        "Panama": "America/Panama",
-        "Papua New Guinea": "Pacific/Port_Moresby",
-        "Paraguay": "America/Asuncion",
-        "Peru": "America/Lima",
-        "Philippines": "Asia/Manila",
-        "Poland": "Europe/Warsaw",
-        "Portugal": "Europe/Lisbon",
-        "Qatar": "Asia/Qatar",
-        "Romania": "Europe/Bucharest",
-        "Russia": "Europe/Moscow",
-        "Rwanda": "Africa/Kigali",
-        "Saint Kitts and Nevis": "America/St_Kitts",
-        "Saint Lucia": "America/St_Lucia",
-        "Saint Vincent and the Grenadines": "America/St_Vincent",
-        "Samoa": "Pacific/Apia",
-        "San Marino": "Europe/San_Marino",
-        "Sao Tome and Principe": "Africa/Sao_Tome",
-        "Saudi Arabia": "Asia/Riyadh",
-        "Senegal": "Africa/Dakar",
-        "Serbia": "Europe/Belgrade",
-        "Seychelles": "Africa/Victoria",
-        "Sierra Leone": "Africa/Freetown",
-        "Singapore": "Asia/Singapore",
-        "Slovakia": "Europe/Bratislava",
-        "Slovenia": "Europe/Ljubljana",
-        "Solomon Islands": "Pacific/Guadalcanal",
-        "Somalia": "Africa/Mogadishu",
-        "South Africa": "Africa/Johannesburg",
-        "Spain": "Europe/Madrid",
-        "Sri Lanka": "Asia/Colombo",
-        "Sudan": "Africa/Khartoum",
-        "Suriname": "America/Paramaribo",
-        "Sweden": "Europe/Stockholm",
-        "Switzerland": "Europe/Zurich",
-        "Syria": "Asia/Damascus",
-        "Taiwan": "Asia/Taipei",
-        "Tajikistan": "Asia/Dushanbe",
-        "Tanzania": "Africa/Dodoma",
-        "Thailand": "Asia/Bangkok",
-        "Togo": "Africa/Lome",
-        "Tonga": "Pacific/Nuku'alofa",
-        "Trinidad and Tobago": "America/Port_of_Spain",
-        "Tunisia": "Africa/Tunis",
-        "Turkey": "Europe/Istanbul",
-        "Turkmenistan": "Asia/Ashgabat",
-        "Tuvalu": "Pacific/Funafuti",
-        "Uganda": "Africa/Kampala",
-        "Ukraine": "Europe/Kiev",
-        "United Arab Emirates": "Asia/Dubai",
-        "United Kingdom": "Europe/London",
         "United States": "America/New_York",
-        "Uruguay": "America/Montevideo",
-        "Uzbekistan": "Asia/Tashkent",
-        "Vanuatu": "Pacific/Port_Vila",
-        "Vatican City": "Europe/Vatican",
-        "Venezuela": "America/Caracas",
+        "India": "Asia/Kolkata",
+        "Japan": "Asia/Tokyo",
+        "Germany": "Europe/Berlin",
+        "Australia": "Australia/Sydney",
+        "Brazil": "America/Sao_Paulo",
+        "Canada": "America/Toronto",
+        "China": "Asia/Shanghai",
+        "France": "Europe/Paris",
+        "Russia": "Europe/Moscow",
+        "South Africa": "Africa/Johannesburg",
+        "Argentina": "America/Argentina/Buenos_Aires",
+        "Mexico": "America/Mexico_City",
+        "United Kingdom": "Europe/London",
+        "Italy": "Europe/Rome",
+        "Spain": "Europe/Madrid",
+        "Netherlands": "Europe/Amsterdam",
+        "Turkey": "Europe/Istanbul",
+        "New Zealand": "Pacific/Auckland",
+        "Sweden": "Europe/Stockholm",
+        "Saudi Arabia": "Asia/Riyadh",
+        "South Korea": "Asia/Seoul",
+        "Indonesia": "Asia/Jakarta",
+        "Nigeria": "Africa/Lagos",
+        "Philippines": "Asia/Manila",
         "Vietnam": "Asia/Ho_Chi_Minh",
+        "Thailand": "Asia/Bangkok",
+        "Malaysia": "Asia/Kuala_Lumpur",
+        "Singapore": "Asia/Singapore",
+        "Pakistan": "Asia/Karachi",
+        "Egypt": "Africa/Cairo",
+        "Colombia": "America/Bogota",
+        "Peru": "America/Lima",
+        "Chile": "America/Santiago",
+        "Finland": "Europe/Helsinki",
+        "Norway": "Europe/Oslo",
+        "Denmark": "Europe/Copenhagen",
+        "Ireland": "Europe/Dublin",
+        "Czech Republic": "Europe/Prague",
+        "Greece": "Europe/Athens",
+        "Portugal": "Europe/Lisbon",
+        "Ukraine": "Europe/Kiev",
+        "Israel": "Asia/Jerusalem",
+        "Bangladesh": "Asia/Dhaka",
+        "Iraq": "Asia/Baghdad",
+        "Afghanistan": "Asia/Kabul",
+        "Kuwait": "Asia/Kuwait",
+        "Jordan": "Asia/Amman",
+        "Oman": "Asia/Muscat",
+        "Qatar": "Asia/Qatar",
+        "Kazakhstan": "Asia/Almaty",
+        "Uzbekistan": "Asia/Tashkent",
+        "Sri Lanka": "Asia/Colombo",
+        "Honduras": "America/Tegucigalpa",
+        "Costa Rica": "America/Costa_Rica",
+        "Panama": "America/Panama",
+        "Ecuador": "America/Guayaquil",
+        "Venezuela": "America/Caracas",
+        "Bolivia": "America/La_Paz",
+        "Paraguay": "America/Asuncion",
+        "Syria": "Asia/Damascus",
+        "Sudan": "Africa/Khartoum",
         "Yemen": "Asia/Aden",
-        "Zambia": "Africa/Lusaka",
-        "Zimbabwe": "Africa/Harare"
+        "Libya": "Africa/Tripoli",
+        "Morocco": "Africa/Casablanca",
+        "Tunisia": "Africa/Tunis",
+        "Algeria": "Africa/Algiers",
+        "Senegal": "Africa/Dakar",
+        "Ghana": "Africa/Accra",
+        "Ivory Coast": "Africa/Abidjan",
+        "Tanzania": "Africa/Dar_es_Salaam",
+        "Uganda": "Africa/Kampala",
+        "Zimbabwe": "Africa/Harare",
+        "Namibia": "Africa/Windhoek",
+        "Botswana": "Africa/Gaborone",
+        "Mali": "Africa/Bamako",
+        "Malawi": "Africa/Blantyre",
+        "Cameroon": "Africa/Douala",
+        "DR Congo": "Africa/Kinshasa",
+        "Congo": "Africa/Brazzaville",
+        "Angola": "Africa/Luanda",
+        "Somalia": "Africa/Mogadishu",
+        "Rwanda": "Africa/Kigali",
+        "Burundi": "Africa/Gitega",
+        "Niger": "Africa/Niamey",
+        "Djibouti": "Africa/Djibouti",
+        "Malta": "Europe/Valletta",
+        "Liechtenstein": "Europe/Vaduz",
+        "Luxembourg": "Europe/Luxembourg",
+        "Monaco": "Europe/Monaco",
+        "Andorra": "Europe/Andorra",
+        "San Marino": "Europe/San_Marino",
+        "Vatican City": "Europe/Vatican",
+        "Brunei": "Asia/Brunei",
+        "Bhutan": "Asia/Thimphu",
+        "Maldives": "Indian/Maldives",
+        "Timor-Leste": "Asia/Dili"
     };
 
-    function displayTime() {
+    let interval;
+
+    function startClock() {
         const select = document.getElementById('countrySelect');
         const country = select.value;
         const timezone = timezones[country];
 
         if (timezone) {
-            const options = { timeZone: timezone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-            const timeString = new Intl.DateTimeFormat([], options).format(new Date());
-            document.getElementById('watch').innerText = timeString;
-            document.getElementById('info').innerText = `Current time in ${country}:`;
+            clearInterval(interval); // Clear any existing interval
+            interval = setInterval(() => {
+                const options = { timeZone: timezone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+                const dateOptions = { timeZone: timezone, year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+                const timeString = new Intl.DateTimeFormat([], options).format(new Date());
+                const dateString = new Intl.DateTimeFormat([], dateOptions).format(new Date());
+                
+                document.getElementById('watch').innerText = timeString;
+                document.getElementById('info').innerText = `Current time in ${country}: ${dateString}`;
+            }, 1000);
         } else {
+            clearInterval(interval);
             document.getElementById('watch').innerText = '00:00:00';
             document.getElementById('info').innerText = '';
         }
